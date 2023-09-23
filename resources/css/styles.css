@@ -1,0 +1,32 @@
+ @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap');
+
+ body {
+     font-family: 'Changa', sans-serif;
+ }
+
+ .custom-container {
+     background-color: #f6f6f6;
+     padding: 40px;
+     height: 100vh;
+     width: 100%;
+     border: 40px solid #000000;
+     border-image: url(../../img/fondo.jpg) 40 round;
+     box-shadow: inset 1px 0px 0px 9px #E83E33;
+ }
+
+ .btn-group-lg>.btn,
+ .btn-lg {
+     padding: 1.5rem 1rem !important;
+ }
+
+ @media (max-width: 767px) {
+     .custom-container {
+         height: 100%;
+     }
+ }
+
+ .btn-pokemon {
+     background: #FFCB05;
+     border: 13px solid #3A79A7;
+     box-shadow: inset -3px 5px 2px #0000006e;
+ }

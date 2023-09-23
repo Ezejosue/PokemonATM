@@ -1,74 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Bank</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap');
-                
-        body {
-          font-family: 'Changa', sans-serif;
-        }
-
-        .custom-container {
-            background-color: #f6f6f6;
-            padding: 40px;
-            height: 100vh;
-            width: 100%;
-            border: 40px solid #000000;
-            border-image: url(img/fondo.jpg) 40 round;
-            box-shadow: inset 1px 0px 0px 9px #E83E33;
-        }
-
-        .btn-group-lg>.btn, .btn-lg {
-            padding: 1.5rem 1rem !important;
-        }
-        
-        @media (max-width: 767px) {
-            .custom-container {
-                height: 100%;
-            }
-        }
-
-        .btn-pokemon {
-          background: #FFCB05;
-          border: 13px solid #3A79A7;
-          box-shadow: inset -3px 5px 2px #0000006e;
-        }
-    </style>
+    <link rel="stylesheet" href="resources/css/styles.css">
 </head>
+
 <body>
     <div class="container-fluid custom-container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-cajero">John Smith</h1>
-          <h5 class="text-cajero">Número de cuenta: 05603450620</h5>
-        </div>
-      </div>
-      <div class="row pt-4">
-        <div class="col-12 col-md-3 col-lg-3 col-sm-12">
-            <div class="d-flex flex-column margin-button-botones">
-                <button class="btn btn-pokemon mb-5 btn-lg">Depósito</button>
-                <button class="btn btn-pokemon mb-5 btn-lg">Consulta de saldo</button>
-                <button class="btn btn-pokemon mb-5 btn-lg">Mis Finanzas</button>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-cajero">John Smith</h1>
+                <h5 class="text-cajero">Número de cuenta: 05603450620</h5>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-6 col-sm-12 d-flex  justify-content-center">
-            
-        </div>
-        <div class="col-12 col-md-3 col-lg-3 col-sm-12">
-            <div class="d-flex flex-column margin-button-botones">
-                <button class="btn btn-pokemon mb-5 btn-lg">Retiro</button>
-                <button class="btn btn-pokemon mb-5 btn-lg">Pago Servicios</button>
-                <button class="btn btn-pokemon mb-5 btn-lg">Salir</button>
+        <div class="row pt-4">
+            <div class="col-12 col-md-3 col-lg-3 col-sm-12">
+                <div class="d-flex flex-column margin-button-botones">
+                    <button class="btn btn-pokemon mb-5 btn-lg">Depósito</button>
+                    <button class="btn btn-pokemon mb-5 btn-lg">Consulta de saldo</button>
+                    <button class="btn btn-pokemon mb-5 btn-lg">Mis Finanzas</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-sm-12 d-flex  justify-content-center">
+
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 col-sm-12">
+                <div class="d-flex flex-column margin-button-botones">
+                    <button class="btn btn-pokemon mb-5 btn-lg">Retiro</button>
+                    <button class="btn btn-pokemon mb-5 btn-lg">Pago Servicios</button>
+                    <button class="btn btn-pokemon mb-5 btn-lg">Salir</button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 </body>
+
 </html>

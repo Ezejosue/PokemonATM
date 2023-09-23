@@ -10,7 +10,7 @@ body {
   height: 100vh;
   width: 100%;
   border: 40px solid #000000;
-  border-image: url(../../img/fondo.jpg) 40 round;
+  border-image: url(../img/fondo.jpg) 40 round;
   box-shadow: inset 1px 0px 0px 9px #e83e33;
 }
 

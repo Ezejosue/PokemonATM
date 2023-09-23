@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Bank</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/styles.css">
 </head>
 
@@ -31,15 +31,66 @@
             <div class="col-12 col-md-3 col-lg-3 col-sm-12">
                 <div class="d-flex flex-column margin-button-botones">
                     <button class="btn btn-pokemon mb-5 btn-lg">Retiro</button>
-                    <button class="btn btn-pokemon mb-5 btn-lg">Pago Servicios</button>
+                    <!-- Botón para abrir el modal -->
+                    <button class="btn btn-pokemon mb-5 btn-lg" data-bs-toggle="modal"
+                        data-bs-target="#pokemonModal">Pago Servicios</button>
                     <button class="btn btn-pokemon mb-5 btn-lg">Salir</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
+    <!-- Modal Pokémon -->
+    <div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="pokemonModalLabel">Pago de Servicios</h3>
+                    <!-- Botón de cierre con imagen de Pokéball -->
+                    <button type="button" class="pokeball-close" data-bs-dismiss="modal" aria-label="Close">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
+                            alt="Cerrar" width="35">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="servicio" class="pokemon-label d-inline-block">Elija el servicio a pagar</label>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                        class="pokemon-icon">:
+
+                    <select class="form-select mb-3" id="servicio">
+                        <option selected>Seleccione un servicio</option>
+                        <option value="agua">Recibo de agua</option>
+                        <option value="luz">Recibo de luz</option>
+                        <option value="internet">Recibo de internet</option>
+                    </select>
+                    <label for="npe" class="pokemon-label d-inline-block">Ingrese el código NPE del recibo</label>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                        class="pokemon-icon">:
+
+                    <input type="text" class="form-control" id="npe" placeholder="#### #### #### #### #### #### ####">
+                </div>
+                <div class="modal-footer d-flex justify-content-center align-items-center flex-column">
+                    <div id="errors" class="text-danger mb-2"></div>
+                    <div>
+                        <button type="button" class="btn btn-danger me-2" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-warning" id="payButton">Pagar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
+    <!-- Incluir el CDN de validate.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+    <!-- Incluir el archivo script.js -->
+    <script src="resources/js/validator.js"></script>
+
 </body>
+
 
 </html>

@@ -1,32 +1,101 @@
- @import url('https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap");
 
- body {
-     font-family: 'Changa', sans-serif;
- }
+body {
+  font-family: "Changa", sans-serif;
+}
 
- .custom-container {
-     background-color: #f6f6f6;
-     padding: 40px;
-     height: 100vh;
-     width: 100%;
-     border: 40px solid #000000;
-     border-image: url(../../img/fondo.jpg) 40 round;
-     box-shadow: inset 1px 0px 0px 9px #E83E33;
- }
+.custom-container {
+  background-color: #f6f6f6;
+  padding: 40px;
+  height: 100vh;
+  width: 100%;
+  border: 40px solid #000000;
+  border-image: url(../../img/fondo.jpg) 40 round;
+  box-shadow: inset 1px 0px 0px 9px #e83e33;
+}
 
- .btn-group-lg>.btn,
- .btn-lg {
-     padding: 1.5rem 1rem !important;
- }
+.btn-group-lg > .btn,
+.btn-lg {
+  padding: 1.5rem 1rem !important;
+}
 
- @media (max-width: 767px) {
-     .custom-container {
-         height: 100%;
-     }
- }
+@media (max-width: 767px) {
+  .custom-container {
+    height: 100%;
+  }
+}
 
- .btn-pokemon {
-     background: #FFCB05;
-     border: 13px solid #3A79A7;
-     box-shadow: inset -3px 5px 2px #0000006e;
- }
+.btn-pokemon {
+  background: #ffcb05;
+  border: 13px solid #3a79a7;
+  box-shadow: inset -3px 5px 2px #0000006e;
+}
+
+/* Estilos adicionales para el modal */
+.pokeball-close {
+  border: none;
+  background: none;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  z-index: 10;
+}
+
+.modal-header {
+  justify-content: center;
+  background-color: #ffcb05;
+}
+
+.modal-content {
+  border: 2px solid #3a79a7;
+}
+
+/* Estilo para aumentar el tamaño del modal */
+.modal-dialog {
+  max-width: 45%;
+}
+
+.pokemon-icon {
+  width: 40px;
+  /* Tamaño reducido */
+  height: 40px;
+  vertical-align: middle;
+  /* Alineación en el centro verticalmente */
+  margin-left: -12px;
+  margin-right: -10px;
+  /* Espacio entre el texto del label y la imagen */
+}
+
+#errors {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  /* Espacio entre los errores y los botones */
+}
+
+/* Estilos responsive para el modal */
+@media (max-width: 576px) {
+  /* Pantallas pequeñas */
+  .modal-dialog {
+    max-width: 90%;
+    margin: 1.75rem auto;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+  /* Pantallas medianas */
+  .modal-dialog {
+    max-width: 70%;
+  }
+}
+
+@media (min-width: 993px) {
+  /* Pantallas grandes */
+  .modal-dialog {
+    max-width: 60%;
+  }
+}

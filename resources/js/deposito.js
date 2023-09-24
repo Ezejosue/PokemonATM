@@ -28,10 +28,18 @@ var constraints2 = {
         $("#pokemonModalDeposito").modal('hide');
         document.getElementById("cantidadDeposito").value = "";
 
+                // Crea una instancia de Audio con la ruta al archivo de sonido
+        const successSound = new Audio('resources/audio/pokemon.mp3'); // Reemplaza con la ruta correcta
+
+        // Crea la alerta de SweetAlert2 con icono de éxito
         Swal.fire({
-            icon: 'success',
-            title: 'Depósito Ingresado.'
-        })    
-    }
+          icon: 'success',
+          title: 'Depósito Ingresado.'
+        }).then(() => {
+          // Reproduce el sonido cuando se muestra la alerta de éxito
+          successSound.play();
+        });
+
+            }
   });
   

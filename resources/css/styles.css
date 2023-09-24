@@ -10,7 +10,7 @@ body {
   height: 100vh;
   width: 100%;
   border: 40px solid #000000;
-  border-image: url(../../img/fondo.jpg) 40 round;
+  border-image: url(../img/fondo.jpg) 40 round;
   box-shadow: inset 1px 0px 0px 9px #e83e33;
 }
 
@@ -29,6 +29,13 @@ body {
   background: #ffcb05;
   border: 13px solid #3a79a7;
   box-shadow: inset -3px 5px 2px #0000006e;
+}
+
+.btn-pokemon:hover {
+  color: white !important;
+  background-color: #3a79a7 !important;
+  border: 13px solid #ffcb05 !important;
+  box-shadow: inset -3px 5px 2px #0000006e !important;
 }
 
 /* Estilos adicionales para el modal */
@@ -98,4 +105,15 @@ body {
   .modal-dialog {
     max-width: 60%;
   }
+}
+
+.body-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  width: 300px;
 }

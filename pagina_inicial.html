@@ -21,8 +21,10 @@
         <div class="row pt-4">
             <div class="col-12 col-md-3 col-lg-3 col-sm-12">
                 <div class="d-flex flex-column margin-button-botones">
-                    <button class="btn btn-pokemon mb-5 btn-lg" data-bs-toggle="modal" data-bs-target="#pokemonModalDeposito">Depósito</button>
-                    <button class="btn btn-pokemon mb-5 btn-lg">Consulta de saldo</button>
+                    <button class="btn btn-pokemon mb-5 btn-lg" data-bs-toggle="modal"
+                        data-bs-target="#pokemonModalDeposito">Depósito</button>
+                    <button class="btn btn-pokemon mb-5 btn-lg" data-bs-toggle="modal"
+                        data-bs-target="#pokemonModalConsulta">Consulta de saldo</button>
                     <button class="btn btn-pokemon mb-5 btn-lg">Mis Finanzas</button>
                 </div>
             </div>
@@ -31,7 +33,8 @@
             </div>
             <div class="col-12 col-md-3 col-lg-3 col-sm-12">
                 <div class="d-flex flex-column margin-button-botones">
-                    <button class="btn btn-pokemon mb-5 btn-lg" data-bs-toggle="modal" data-bs-target="#pokemonModalRetiro">Retiro</button>
+                    <button class="btn btn-pokemon mb-5 btn-lg" data-bs-toggle="modal"
+                        data-bs-target="#pokemonModalRetiro">Retiro</button>
                     <!-- Botón para abrir el modal -->
                     <button class="btn btn-pokemon mb-5 btn-lg" data-bs-toggle="modal"
                         data-bs-target="#pokemonModal">Pago Servicios</button>
@@ -82,7 +85,8 @@
     </div>
 
     <!-- Modal Deposito -->
-    <div class="modal fade" id="pokemonModalDeposito" tabindex="-1" aria-labelledby="pokemonModalDepositoLabel" aria-hidden="true">
+    <div class="modal fade" id="pokemonModalDeposito" tabindex="-1" aria-labelledby="pokemonModalDepositoLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -93,7 +97,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label for="cantidadDeposito" class="pokemon-label d-inline-block">Ingrese cantidad a depositar</label>
+                    <label for="cantidadDeposito" class="pokemon-label d-inline-block">Ingrese cantidad a
+                        depositar</label>
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
                         class="pokemon-icon">:
                     <input type="text" class="form-control" id="cantidadDeposito">
@@ -110,7 +115,8 @@
     </div>
 
     <!-- Modal Retirar -->
-    <div class="modal fade" id="pokemonModalRetiro" tabindex="-1" aria-labelledby="pokemonModalRetiroLabel" aria-hidden="true">
+    <div class="modal fade" id="pokemonModalRetiro" tabindex="-1" aria-labelledby="pokemonModalRetiroLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -136,6 +142,34 @@
             </div>
         </div>
     </div>
+    <!-- Modal Consulta de Saldo -->
+    <div class="modal fade" id="pokemonModalConsulta" tabindex="-1" aria-labelledby="pokemonModalConsultaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="pokemonModalConsultaLabel">Consulta de saldo</h3>
+                    <button type="button" class="pokeball-close" data-bs-dismiss="modal" aria-label="Close">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
+                            alt="Cerrar" width="35">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="cantidadDeposito" class="pokemon-label d-inline-block">Su saldo disponible es</label>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                        class="pokemon-icon">:
+                    <!-- Elemento de texto para mostrar el saldo -->
+                    <div id="saldoResultado" class="form-control"></div>
+                    <div id="errors_deposito" class="text-danger mb-2"></div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center align-items-center flex-column">
+                    <div>
+                        <button type="button" class="btn btn-danger me-2" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Bootstrap JS y Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -146,10 +180,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
+
     <!-- Incluir el archivo script.js -->
     <script src="resources/js/validator.js"></script>
     <script src="resources/js/deposito.js"></script>
     <script src="resources/js/retiro.js"></script>
+    <script src="resources/js/consulta.js"></script>
 </body>
+
 </html>

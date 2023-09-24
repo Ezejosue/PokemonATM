@@ -1,4 +1,5 @@
 // Definir las reglas de validación
+var saldoActual = 3000;
 var constraintsRetiro = {
     cantidadRetirar: {
       presence: {
@@ -25,35 +26,43 @@ var constraintsRetiro = {
         document.getElementById("errors_retiro").innerHTML += errorsRe[key] + "<br>";
       }
     }else{
-        let timerInterval
-        Swal.fire({
-        title: 'Retirando Efectivo...',
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
-                b.textContent = Swal.getTimerLeft()
-            }, 100)
-        },
-        willClose: () => {
-            clearInterval(timerInterval)
+        var inputRetiro = document.getElementById("cantidadRetirar").value;
+        if(inputRetiro > saldoActual){
+          Swal.fire({
+              icon: 'error',
+              title: 'Saldo insuficiente... :('
+          });
+        }else{
+          let timerInterval
+          Swal.fire({
+          title: 'Retirando Efectivo...',
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: () => {
+              Swal.showLoading()
+              const b = Swal.getHtmlContainer().querySelector('b')
+              timerInterval = setInterval(() => {
+                  b.textContent = Swal.getTimerLeft()
+              }, 100)
+          },
+          willClose: () => {
+              clearInterval(timerInterval)
+          }
+          }).then((result) => {
+              /* Read more about handling dismissals below */
+              if (result.dismiss === Swal.DismissReason.timer) {
+
+                  document.getElementById("cantidadRetirar").value = "";
+
+                  Swal.fire({
+                      icon: 'success',
+                      title: 'Retire el efectivo'
+                  });
+                  
+                  $("#pokemonModalRetiro").modal('hide');
+              }
+          });
         }
-        }).then((result) => {
-            /* Read more about handling dismissals below */
-            if (result.dismiss === Swal.DismissReason.timer) {
-
-                document.getElementById("cantidadRetirar").value = "";
-
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Retire el efectivo'
-                });
-                
-                $("#pokemonModalRetiro").modal('hide');
-            }
-        });
     }
   });
   

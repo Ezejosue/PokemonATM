@@ -34,6 +34,7 @@ var constraintsRetiro = {
           });
         }else{
           let timerInterval
+          const alertSound = new Audio('resources/audio/pokemon.mp3');
           Swal.fire({
           title: 'Retirando Efectivo...',
           timer: 2000,
@@ -47,8 +48,10 @@ var constraintsRetiro = {
           },
           willClose: () => {
               clearInterval(timerInterval)
+              alertSound.play();
           }
-          }).then((result) => {
+          })
+          .then((result) => {
               /* Read more about handling dismissals below */
               if (result.dismiss === Swal.DismissReason.timer) {
 

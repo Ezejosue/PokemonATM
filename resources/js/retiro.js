@@ -1,5 +1,5 @@
 // Definir las reglas de validación
-var saldoActual = 3000;
+var saldoActualPokemon = 3000;
 var constraintsRetiro = {
     cantidadRetirar: {
       presence: {
@@ -27,7 +27,7 @@ var constraintsRetiro = {
       }
     }else{
         var inputRetiro = document.getElementById("cantidadRetirar").value;
-        if(inputRetiro > saldoActual){
+        if(inputRetiro > saldoActualPokemon){
           Swal.fire({
               icon: 'error',
               title: 'Saldo insuficiente... :('

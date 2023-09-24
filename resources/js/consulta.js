@@ -10,4 +10,3 @@ function obtenerSaldoDisponible(saldoActual) {
 $('#pokemonModalConsulta').on('shown.bs.modal', function () {
     obtenerSaldoDisponible(saldoActual);
 });
-alert(saldoActual);

@@ -17,9 +17,9 @@
 
     <div class="login-form">
         <h2 class="text-center mb-4">Ingrese su PIN</h2>
-        <form>
+        <form onsubmit="return false;">
             <div class="mb-4">
-                <input type="password" class="form-control form-control-lg" id="pin" placeholder="****">
+                <input type="password" max="4" maxlength="4" class="form-control form-control-lg" id="pin" placeholder="****">
                 <div id="errors" class="text-danger mb-2"></div>
             </div>
             

@@ -14,8 +14,8 @@
     <div class="container-fluid custom-container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-cajero">John Smith</h1>
-                <h5 class="text-cajero">Número de cuenta: 05603450620</h5>
+                <h1 class="text-cajero" id="nombre"></h1>
+                <h5 class="text-cajero">Número de cuenta: <span id="cuenta"></span></h5>
             </div>
         </div>
         <div class="row pt-4">
@@ -39,7 +39,7 @@
                     <!-- Botón para abrir el modal -->
                     <button class="btn btn-pokemon mb-5 btn-lg" data-bs-toggle="modal"
                         data-bs-target="#pokemonModal">Pago Servicios</button>
-                    <a class="btn btn-pokemon mb-5 btn-lg" href="index.html">Salir</a>
+                    <a class="btn btn-pokemon mb-5 btn-lg" href="#" onclick="cerrarSesion()">Salir</a>
                 </div>
             </div>
         </div>
@@ -131,7 +131,7 @@
                     <label for="cantidadRetirar" class="pokemon-label d-inline-block">Ingrese cantidad a retirar</label>
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
                         class="pokemon-icon">:
-                    <input type="text" class="form-control" id="cantidadRetirar">
+                    <input type="number" min="0" class="form-control" id="cantidadRetirar">
                     <div id="errors_retiro" class="text-danger mb-2"></div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center align-items-center flex-column">
@@ -245,6 +245,9 @@
 
 
                     <!-- Incluir el archivo script.js -->
+                    <script src="resources/js/validSession.js"></script>
+                    <script src="resources/js/logout.js"></script>
+
                     <script src="resources/js/validator.js"></script>
                     <script src="resources/js/deposito.js"></script>
                     <script src="resources/js/retiro.js"></script>

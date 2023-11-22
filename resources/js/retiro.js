@@ -1,5 +1,28 @@
+// Creamos un json con los usuarios que podran acceder al ATM
+var recibos = [
+        {
+            "TipoRecibo": "Agua",
+            "Total": 30.00,
+            "NPE": "1000 3100 9550 6433",
+        },
+        {
+            "TipoRecibo": "CAESS",
+            "Total": 25.00,
+            "NPE": "2346 4507 8943 1347",
+        },
+    ];
+
+
+
+
+
+// Recuperar del localstorage los datos de la session
+let user_data = localStorage.getItem('session_user');
+let datos = JSON.parse(user_data);
+// pasamos del array de  localstorage el saldoInicial
+var saldoActualPokemon = datos.SaldoInicial;
+
 // Definir las reglas de validación
-var saldoActualPokemon = 3000;
 var constraintsRetiro = {
     cantidadRetirar: {
       presence: {

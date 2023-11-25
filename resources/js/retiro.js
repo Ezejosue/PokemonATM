@@ -1,9 +1,9 @@
 
 // Recuperar del localstorage los datos de la sesión
-let user_data = localStorage.getItem('session_user');
-let datos = JSON.parse(user_data);
+let user_data_retiro = localStorage.getItem('session_user');
+let datosRetiro = JSON.parse(user_data_retiro);
 // pasamos del array de localstorage el saldoInicial
-var saldoActualPokemon = datos.SaldoInicial;
+let saldoActualAntesDeRetiro = datosRetiro.SaldoInicial;
 
 // Definir las reglas de validación
 var constraintsRetiro = {
@@ -19,10 +19,10 @@ var constraintsRetiro = {
 };
 
 document.getElementById("ButtonRetirar").addEventListener("click", function () {
-  var inputRetiro = parseFloat(document.getElementById("cantidadRetirar").value);
+  let inputRetiro = parseFloat(document.getElementById("cantidadRetirar").value);
 
   // Verificar si la cantidad a retirar es mayor que el saldo actual
-  if (inputRetiro > saldoActualPokemon) {
+  if (inputRetiro > saldoActualAntesDeRetiro) {
     Swal.fire({
       icon: 'error',
       title: 'Saldo insuficiente...',
@@ -64,14 +64,12 @@ document.getElementById("ButtonRetirar").addEventListener("click", function () {
     }).then((result) => {
       if (result.dismiss === Swal.DismissReason.timer) {
         // Realizar el retiro y actualizar el saldo
-        saldoActualPokemon -= inputRetiro;
-
+        let operacion = saldoActualAntesDeRetiro - inputRetiro;
         // Actualizar el saldo en el localStorage
-        datos.SaldoInicial = saldoActualPokemon;
-        localStorage.setItem('session_user', JSON.stringify(datos));
-
-        document.getElementById("cantidadRetirar").value = "";
-
+        datosRetiro.SaldoInicial = operacion;
+        localStorage.setItem('session_user', JSON.stringify(datosRetiro));
+        location.reload();
+        
         Swal.fire({
           icon: 'success',
           title: 'Retire el efectivo'

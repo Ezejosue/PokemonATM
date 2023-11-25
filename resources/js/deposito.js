@@ -26,9 +26,19 @@ var constraints2 = {
       }
     }else{
         $("#pokemonModalDeposito").modal('hide');
-        document.getElementById("cantidadDeposito").value = "";
-
-                // Crea una instancia de Audio con la ruta al archivo de sonido
+        // obtenemos el valor del input
+        let deposito_nuevo = document.getElementById("cantidadDeposito").value;
+        // Recuperar del localstorage los datos de la sesión
+        let user_data_deposito = localStorage.getItem('session_user');
+        let datosDeposito = JSON.parse(user_data_deposito);
+        // Aumentar el saldo en el localStorage
+        let saldoActualAntesDeDeposito = parseFloat(datosDeposito.SaldoInicial) + parseFloat(deposito_nuevo);
+        // actulizamos el saldo en la sesion 
+        datosDeposito.SaldoInicial = saldoActualAntesDeDeposito;
+        localStorage.setItem('session_user', JSON.stringify(datosDeposito));
+        location.reload();
+        
+        // Crea una instancia de Audio con la ruta al archivo de sonido
         const successSound = new Audio('resources/audio/pokemon.mp3'); // Reemplaza con la ruta correcta
 
         // Crea la alerta de SweetAlert2 con icono de éxito
@@ -40,6 +50,6 @@ var constraints2 = {
           successSound.play();
         });
 
-            }
+    }
   });
   

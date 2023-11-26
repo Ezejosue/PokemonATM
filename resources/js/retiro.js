@@ -1,6 +1,5 @@
-
 // Recuperar del localstorage los datos de la sesión
-let user_data_retiro = localStorage.getItem('session_user');
+let user_data_retiro = localStorage.getItem("session_user");
 let datosRetiro = JSON.parse(user_data_retiro);
 // pasamos del array de localstorage el saldoInicial
 let saldoActualAntesDeRetiro = datosRetiro.SaldoInicial;
@@ -19,14 +18,16 @@ var constraintsRetiro = {
 };
 
 document.getElementById("ButtonRetirar").addEventListener("click", function () {
-  let inputRetiro = parseFloat(document.getElementById("cantidadRetirar").value);
+  let inputRetiro = parseFloat(
+    document.getElementById("cantidadRetirar").value
+  );
 
   // Verificar si la cantidad a retirar es mayor que el saldo actual
   if (inputRetiro > saldoActualAntesDeRetiro) {
     Swal.fire({
-      icon: 'error',
-      title: 'Saldo insuficiente...',
-      text: 'No puedes retirar más dinero del que tienes en tu cuenta.',
+      icon: "error",
+      title: "Saldo insuficiente...",
+      text: "No puedes retirar más dinero del que tienes en tu cuenta.",
     });
     return; // Salir de la función si el saldo es insuficiente
   }
@@ -41,18 +42,19 @@ document.getElementById("ButtonRetirar").addEventListener("click", function () {
 
   if (errorsRe) {
     for (var key in errorsRe) {
-      document.getElementById("errors_retiro").innerHTML += errorsRe[key] + "<br>";
+      document.getElementById("errors_retiro").innerHTML +=
+        errorsRe[key] + "<br>";
     }
   } else {
     let timerInterval;
-    const alertSound = new Audio('resources/audio/pokemon.mp3');
+    const alertSound = new Audio("resources/audio/pokemon.mp3");
     Swal.fire({
-      title: 'Retirando Efectivo...',
+      title: "Retirando Efectivo...",
       timer: 2000,
       timerProgressBar: true,
       didOpen: () => {
         Swal.showLoading();
-        const b = Swal.getHtmlContainer().querySelector('b');
+        const b = Swal.getHtmlContainer().querySelector("b");
         timerInterval = setInterval(() => {
           b.textContent = Swal.getTimerLeft();
         }, 100);
@@ -60,22 +62,36 @@ document.getElementById("ButtonRetirar").addEventListener("click", function () {
       willClose: () => {
         clearInterval(timerInterval);
         alertSound.play();
-      }
+      },
     }).then((result) => {
       if (result.dismiss === Swal.DismissReason.timer) {
         // Realizar el retiro y actualizar el saldo
         let operacion = saldoActualAntesDeRetiro - inputRetiro;
         // Actualizar el saldo en el localStorage
         datosRetiro.SaldoInicial = operacion;
-        localStorage.setItem('session_user', JSON.stringify(datosRetiro));
+
+        datosRetiro.transacciones.push({
+          concepto: "Retiro en efectivo", // o cualquier otro concepto
+          fecha: new Date().toISOString().split("T")[0], // Fecha actual en formato YYYY-MM-DD
+          monto: parseFloat(document.getElementById("cantidadRetirar").value),
+          tipo: "retiro",
+        });
+        // Guardar los cambios en localStorage
+        localStorage.setItem("session_user", JSON.stringify(datosRetiro));
+
+        // Actualizar la información de los gráficos
+        procesarTransaccionesParaGraficos(datosRetiro.transacciones);
+        calcularPromedioRetiros(datosRetiro.transacciones);
+
+        localStorage.setItem("session_user", JSON.stringify(datosRetiro));
         location.reload();
-        
+
         Swal.fire({
-          icon: 'success',
-          title: 'Retire el efectivo'
+          icon: "success",
+          title: "Retire el efectivo",
         });
 
-        $("#pokemonModalRetiro").modal('hide');
+        $("#pokemonModalRetiro").modal("hide");
       }
     });
   }

@@ -66,7 +66,7 @@ var usuarios = [
   },
   {
     Nombre: "Josue Avalos",
-    PIN: 7896,
+    PIN: 7777,
     Cuenta: "964785142",
     SaldoInicial: 800.0,
     transacciones: [

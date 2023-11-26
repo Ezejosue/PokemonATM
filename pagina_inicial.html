@@ -143,6 +143,7 @@
             </div>
         </div>
     </div>
+
     <!-- Modal Consulta de Saldo -->
     <div class="modal fade" id="pokemonModalConsulta" tabindex="-1" aria-labelledby="pokemonModalConsultaLabel"
         aria-hidden="true">
@@ -171,6 +172,8 @@
             </div>
         </div>
     </div>
+
+    
     <!-- Modal Mis Finanzas -->
     <div class="modal fade" id="pokemonModalfinanzas" tabindex="-1" aria-labelledby="pokemonModalfinanzasLabel"
         aria-hidden="true">
@@ -193,6 +196,10 @@
                             <canvas id="myChart2" width="200" height="70"> </canvas>
                         </div>
                     </div>
+
+                    <input type="text" class="form-control mb-3" id="buscarTransaccion"
+                        placeholder="Buscar transacción...">
+
                     <div class="row">
                         <div class="col-md-12">
                             <table class="table table-light" id="tablaTransacciones">
@@ -247,12 +254,12 @@
                     <!-- Incluir el archivo script.js -->
                     <script src="resources/js/validSession.js"></script>
                     <script src="resources/js/logout.js"></script>
-
+                    <script src="resources/js/buscador.js"></script>
                     <script src="resources/js/deposito.js"></script>
                     <script src="resources/js/retiro.js"></script>
                     <script src="resources/js/consulta.js"></script>
                     <script src="resources/js/servicios.js"></script>
-                    
+
                     <!-- Incluir el CDN de ChartJS -->
                     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
                     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

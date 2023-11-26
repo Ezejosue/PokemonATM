@@ -18,6 +18,25 @@ document.addEventListener("DOMContentLoaded", function () {
     cargarTransacciones(datos.transacciones);
     procesarTransaccionesParaGraficos(datos.transacciones);
     calcularPromedioRetiros(datos.transacciones);
+
+    document
+      .getElementById("buscarTransaccion")
+      .addEventListener("input", function (e) {
+        var textoBusqueda = e.target.value.toLowerCase(); // Convertir la búsqueda a minúsculas para hacerla insensible a mayúsculas
+        var transaccionesFiltradas = datos.transacciones.filter(function (
+          transaccion
+        ) {
+          // Verificar si el concepto, la fecha o el monto contiene el texto buscado
+          return (
+            transaccion.concepto.toLowerCase().includes(textoBusqueda) ||
+            transaccion.fecha.includes(textoBusqueda) ||
+            transaccion.monto.toString().includes(textoBusqueda)
+          );
+        });
+
+        // Actualizar la tabla con las transacciones filtradas
+        cargarTransacciones(transaccionesFiltradas);
+      });
   }
 });
 
